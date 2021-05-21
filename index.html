@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>OPTrading</title>
+		<title>Stock Price/Risk Movement Prediction</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -16,8 +16,8 @@
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="inner">
-					<h1>Price/Risk Movement Prediction</h1>
-					<h3></h3>
+					<h1>Stock Price/Risk Movement Prediction</h1>
+					<h3>Semantics-Preserved Data Augmentation for Aspect-Based Sentiment Analysis</h3>
 				</div>
 			</header>
 
@@ -36,90 +36,12 @@
 				<!-- Banner -->
 					<section id="intro" class="main">
 
-						<h1>Ranking</h1>
-
-
-						<select align=center onClick="ranking(this)" >
-
-							<option value="acc">Accuracy</option>
-							<option value="return">Return</option>
-							<option value="risk">Risk</option>
-						</select> <br>
-
-
-
-                        <h3>Top-5 Pairs</h3>
-                        <style type="text/css">
-                        .tg  {border-collapse:collapse;border-spacing:0;}
-                        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Comic Sans MS, sans-serif;font-size:15px;
-                          overflow:hidden;padding:10px 5px;word-break:normal;}
-                        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Comic Sans MS, sans-serif;font-size:15px;
-                          font-weight:normal;overflow:hidden;padding:8px 5px;word-break:normal;}
-                        .tg .tg-baqh{text-align:center;vertical-align:top}
-                        .tg .tg-0lax{text-align:left;vertical-align:top}
-                        </style>
-                        <table class="tg">
-                        <thead>
-                          <tr>
-                            <th class="tg-baqh" colspan="2"><font size="4"><I><b>Target Pair</b></I></font></th>
-                            <th class="tg-baqh" colspan="3"><font size="4"><I><b>Backtesting</b></I></font></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="tg-baqh">Long</td>
-                            <td class="tg-baqh">Short</td>
-                            <td class="tg-baqh">Acc.</td>
-                            <td class="tg-baqh">Return</td>
-                            <td class="tg-baqh">Risk</td>
-                          </tr>
-                          <tr>
-                            <td class="tg-baqh" id="top1_long"></td>
-                            <td class="tg-baqh" id="top1_short"></td>
-                            <td class="tg-baqh" id="top1_acc"></td>
-                            <td class="tg-baqh" id="top1_return"></td>
-                            <td class="tg-baqh" id="top1_risk"></td>
-                          </tr>
-                          <tr>
-                            <td class="tg-baqh" id="top2_long"></td>
-                            <td class="tg-baqh" id="top2_short"></td>
-                            <td class="tg-baqh" id="top2_acc"></td>
-                            <td class="tg-baqh" id="top2_return"></td>
-                            <td class="tg-baqh" id="top2_risk"></td>
-                          </tr>
-                          <tr>
-                            <td class="tg-baqh" id="top3_long"></td>
-                            <td class="tg-baqh" id="top3_short"></td>
-                            <td class="tg-baqh" id="top3_acc"></td>
-                            <td class="tg-baqh" id="top3_return"></td>
-                            <td class="tg-baqh" id="top3_risk"></td>
-                          </tr>
-                          <tr>
-                            <td class="tg-baqh" id="top4_long"></td>
-                            <td class="tg-baqh" id="top4_short"></td>
-                            <td class="tg-baqh" id="top4_acc"></td>
-                            <td class="tg-baqh" id="top4_return"></td>
-                            <td class="tg-baqh" id="top4_risk"></td>
-                          </tr>
-                          <tr>
-                            <td class="tg-baqh" id="top5_long"></td>
-                            <td class="tg-baqh" id="top5_short"></td>
-                            <td class="tg-baqh" id="top5_acc"></td>
-                            <td class="tg-baqh" id="top5_return"></td>
-                            <td class="tg-baqh" id="top5_risk"></td>
-                          </tr>
-                        </tbody>
-                        </table>
-
-						<br> <br> <br>
-
-						<h1>Optional Pairs</h1>
 
 						<form name=testform align=center>
-                            <P><font size="5"><I><b>Primary Stock</b></I></font>  <input align=center type="text" name="stock1" value="T">
-						<P><font size="5"><I><b>Paired Stock</b></I></font> <input align=center type="text" name="stock2" value="GOOG">
+                            <P><font size="5"><I><b>Stock</b></I></font>  <input align=center type="text" name="stock" value="AAPL">
 
-						<P><input type="button" value="Make a strategic decision" onClick="report(this.form)">
+                         <br>
+						<P><input type="button" value="Predict future return/risk" onClick="report(this.form)">
 
 						<style type="text/css">
                         .tg  {border-collapse:collapse;border-spacing:0;}
@@ -128,28 +50,25 @@
                         .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Comic Sans MS, sans-serif;font-size:15px;
                           font-weight:normal;overflow:hidden;padding:8px 5px;word-break:normal;}
                         .tg .tg-baqh{text-align:center;vertical-align:top}
-                        .tg .tg-0lax{text-align:left;vertical-align:top}
+                        .tg .tg-0lax{text-align:center;vertical-align:top}
                         </style>
+
+
+                        <br>
                         <table class="tg">
                         <thead>
                           <tr>
-                            <th class="tg-baqh" colspan="2"><font size="4"><I><b>Target Pair</b></I></font></th>
-                            <th class="tg-baqh" colspan="3"><font size="4"><I><b>Backtesting</b></I></font></th>
+                            <th class="tg-baqh" ><font size="4"><I><b>Financial Aspect</b></I></font></th>
+                              <th class="tg-baqh" ><font size="4"><I><b>Movement</b></I></font></th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td class="tg-baqh">Long</td>
-                            <td class="tg-baqh">Short</td>
-                            <td class="tg-baqh">Acc.</td>
-                            <td class="tg-baqh">Return</td>
-                            <td class="tg-baqh">Risk</td>
+                            <td class="tg-baqh" >Return</td>
+                            <td class="tg-baqh" id="return"></td>
                           </tr>
                           <tr>
-                            <td class="tg-baqh" id="long"></td>
-                            <td class="tg-baqh" id="short"></td>
-                            <td class="tg-baqh" id="acc"></td>
-                            <td class="tg-baqh" id="return"></td>
+                            <td class="tg-baqh" >Risk</td>
                             <td class="tg-baqh" id="risk"></td>
                           </tr>
 
@@ -243,14 +162,6 @@
 
 
 		</script>
-
-
-
-
-
-
-
-
 
 
 				<!-- Main -->
