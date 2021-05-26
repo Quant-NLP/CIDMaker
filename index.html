@@ -83,64 +83,12 @@
 
 		<script>
 
-		function ranking(value) {
-			var selectedOption=value.options[value.selectedIndex];
-
-			var xhr = new XMLHttpRequest();
-				xhr.open('get','https://raw.githubusercontent.com/Quant-NLP/OPTrading/main/report/sort/' + selectedOption.value + '.json',true);
-				xhr.send(null);
-				xhr.onload = function(){
-					var datastr = JSON.parse(xhr.responseText);
-					var info = document.querySelector('.info');
-					var len  = datastr.length;
-					var str= "";
-					var btn = document.querySelector('.btn');
-
-					document.getElementById("top1_long").innerHTML =  datastr[0].long;
-					document.getElementById("top1_short").innerHTML =  datastr[0].short;
-					document.getElementById("top1_acc").innerHTML =  datastr[0].acc + '%';
-					document.getElementById("top1_return").innerHTML =  datastr[0].return + '%';
-					document.getElementById("top1_risk").innerHTML =  datastr[0].risk + '%';
-
-					document.getElementById("top2_long").innerHTML =  datastr[1].long;
-					document.getElementById("top2_short").innerHTML =  datastr[1].short;
-					document.getElementById("top2_acc").innerHTML =  datastr[1].acc + '%';
-					document.getElementById("top2_return").innerHTML =  datastr[1].return + '%';
-					document.getElementById("top2_risk").innerHTML =  datastr[1].risk + '%';
-
-					document.getElementById("top3_long").innerHTML =  datastr[2].long;
-					document.getElementById("top3_short").innerHTML =  datastr[2].short;
-					document.getElementById("top3_acc").innerHTML =  datastr[2].acc + '%';
-					document.getElementById("top3_return").innerHTML =  datastr[2].return + '%';
-					document.getElementById("top3_risk").innerHTML =  datastr[2].risk + '%';
-
-					document.getElementById("top4_long").innerHTML =  datastr[3].long;
-					document.getElementById("top4_short").innerHTML =  datastr[3].short;
-					document.getElementById("top4_acc").innerHTML =  datastr[3].acc + '%';
-					document.getElementById("top4_return").innerHTML =  datastr[3].return + '%';
-					document.getElementById("top4_risk").innerHTML =  datastr[3].risk + '%';
-
-					document.getElementById("top5_long").innerHTML =  datastr[4].long;
-					document.getElementById("top5_short").innerHTML =  datastr[4].short;
-					document.getElementById("top5_acc").innerHTML =  datastr[4].acc + '%';
-					document.getElementById("top5_return").innerHTML =  datastr[4].return + '%';
-					document.getElementById("top5_risk").innerHTML =  datastr[4].risk + '%';
-
-
-				};
-
-			return;
-			document.testform.submit();	// Submit form
-		}
 
 		function report(form) {
 
-		    if (form.stock1.value == form.stock2.value){
-		        alert('Stocks should be different !')
-		    }
 
 			var xhr = new XMLHttpRequest();
-				xhr.open('get','https://raw.githubusercontent.com/Quant-NLP/OPTrading/main/report/' + form.stock1.value + form.stock2.value + '.json',true);
+				xhr.open('get','https://raw.githubusercontent.com/Quant-NLP/CIDMaker/main/report/' + form.stock.value  + '.json',true);
 				xhr.send(null);
 				xhr.onload = function(){
 					var datastr = JSON.parse(xhr.responseText);
@@ -149,11 +97,9 @@
 					var str= "";
 					var btn = document.querySelector('.btn');
 
-					document.getElementById("long").innerHTML =  datastr[0].long;
-					document.getElementById("short").innerHTML =  datastr[0].short;
-					document.getElementById("acc").innerHTML =  datastr[0].acc + '%';
-					document.getElementById("return").innerHTML =  datastr[0].return + '%';
-					document.getElementById("risk").innerHTML =  datastr[0].risk + '%';
+
+					document.getElementById("return").innerHTML =  datastr[0].return ;
+					document.getElementById("risk").innerHTML =  datastr[0].risk ;
 				};
 
 			return;
